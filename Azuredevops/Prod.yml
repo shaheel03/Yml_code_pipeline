@@ -1,5 +1,6 @@
 name: InfraPipeline
-trigger: none
+trigger: 
+- main
 pool: default
 
 
@@ -25,10 +26,10 @@ stages:
             command: 'init'
             workingDirectory: '$(System.DefaultWorkingDirectory)/prod'
             backendServiceArm: 'mynewservice'
-            backendAzureRmResourceGroupName: 'todoapp-rg'
-            backendAzureRmStorageAccountName: 'todoappstrorage'
-            backendAzureRmContainerName: 'todoappcontainer'
-            backendAzureRmKey: 'terraform.tfstate'
+            backendAzureRmResourceGroupName: 'mk'
+            backendAzureRmStorageAccountName: 'todouistorage'
+            backendAzureRmContainerName: 'todouicontainer'
+            backendAzureRmKey: 'infra.tfstate'
 
 
         - task: TerraformTaskV4@4
@@ -63,10 +64,10 @@ stages:
            command: 'init'
            workingDirectory: '$(System.DefaultWorkingDirectory)prod'
            backendServiceArm: 'mynewservice'
-           backendAzureRmResourceGroupName: 'todoapp-rg'
-           backendAzureRmStorageAccountName: 'todoappstrorage'
-           backendAzureRmContainerName: 'todoappcontainer'
-           backendAzureRmKey: 'terraform.tfstate'
+           backendAzureRmResourceGroupName: 'mk'
+           backendAzureRmStorageAccountName: 'todouistorage'
+           backendAzureRmContainerName: 'todouicontainer'
+           backendAzureRmKey: 'infra.tfstate'
 
 
        - task: TerraformTaskV4@4
